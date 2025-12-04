@@ -1,1 +1,819 @@
-# MeuPerfil
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniela Campos | Portfólio </title>
+    <!-- Ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================
+           VARIÁVEIS DE ESPAÇAMENTO PADRONIZADAS
+           ============================================ */
+        :root {
+            /* ESPAÇAMENTOS PADRÃO (múltiplos de 8px) */
+            --space-xs: 8px;     /* Muito pequeno */
+            --space-sm: 12px;    /* Pequeno */
+            --space-md: 16px;    /* Médio */
+            --space-lg: 24px;    /* Grande */
+            --space-xl: 32px;    /* Extra grande */
+            --space-xxl: 40px;   /* Duplo extra grande */
+            --space-xxxl: 48px;  /* Triplo extra grande */
+            /* ESPAÇAMENTOS ESPECÍFICOS */
+            --icon-gap: 12px;    /* Espaço entre ícone e texto */
+            --button-padding: 12px 24px; /* Padding padrão de botões */
+            --card-padding: 24px; /* Padding padrão de cards */
+            --section-padding: 64px 0; /* Padding padrão de seções */
+            --element-gap: 16px; /* Gap entre elementos */
+            --line-height: 1.6;   /* Altura de linha padrão */
+        }
+        /* ============================================
+           RESET E CONFIGURAÇÕES GERAIS
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: var(--line-height);
+            color: #333;
+            /* TEXTURA DISCRETA NO FUNDO DO SITE */
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(rgba(52, 152, 219, 0.08) 1.5px, transparent 1.5px);
+            background-size: 60px 60px;
+            background-position: 0 0;
+            background-attachment: fixed;
+            scroll-behavior: smooth;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        /* ============================================
+           NAVEGAÇÃO (MENU SUPERIOR)
+           ============================================ */
+        #navbar {
+            background-color: #051220;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        #navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md) var(--space-lg);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            padding: var(--space-xs) 0;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--space-lg);
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: var(--space-xs) 0;
+            display: block;
+        }
+        .nav-links a:hover {
+            color: #f33990;
+        }
+        .nav-links a.active {
+            color: #f33990;
+            border-bottom: 2px solid #f33990;
+        }
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: var(--space-xs);
+        }
+        /* ============================================
+           SEÇÃO HERO (INÍCIO / APRESENTAÇÃO)
+           ============================================ */
+        .hero {
+            background-color: #051220;
+            color: white;
+            text-align: center;
+            padding: 140px 0 80px;
+            margin-top: 70px;
+            background-image: none !important;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--space-md);
+            line-height: 1.2;
+        }
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-lg);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+            line-height: 1.6;
+        }
+        /* ============================================
+           BOTÕES COM ESPAÇAMENTO PADRONIZADO
+           ============================================ */
+        .btn {
+            display: inline-block;
+            background-color: #f33990;
+            color: white;
+            padding: var(--button-padding);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .btn:hover {
+            background-color: #e61476;
+        }
+        .btn-small {
+            display: inline-block;
+            background-color: #e61476;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: var(--space-md);
+            font-size: 0.9rem;
+        }
+        .btn-small:hover {
+            background-color: #d0136a;
+        }
+        /* ============================================
+           SEÇÕES GERAIS DO CONTEÚDO
+           ============================================ */
+        .section {
+            padding: var(--section-padding);
+        }
+        .section.dark {
+            background-color: #f5f5f5;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: var(--space-xxl);
+            color: #051220;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #e61476;
+            margin: var(--space-md) auto var(--space-xl);
+        }
+        /* ============================================
+           SEÇÃO "SOBRE MIM"
+           ============================================ */
+        .sobre-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+        .sobre-texto h3 {
+            margin: var(--space-xl) 0 var(--space-md);
+            color: #2c3e50;
+        }
+        .sobre-texto ul {
+            list-style-position: inside;
+            margin-left: 0;
+        }
+        .sobre-texto li {
+            margin-bottom: var(--space-sm);
+            padding-left: var(--space-xs);
+        }
+        /* ============================================
+           SEÇÃO "EXPERIÊNCIA PROFISSIONAL"
+           ============================================ */
+        .experiencia-item {
+            background-color: white;
+            padding: var(--space-xl);
+            border-radius: 8px;
+            margin-bottom: var(--space-lg);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid #e61476;
+        }
+        .experiencia-item h3 {
+            color: #051220;
+            margin-bottom: var(--space-xs);
+        }
+        .empresa {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+        .experiencia-item ul {
+            margin-left: var(--space-lg);
+        }
+        .experiencia-item li {
+            margin-bottom: var(--space-sm);
+        }
+        /* ============================================
+           SEÇÃO "FORMAÇÃO ACADÊMICA"
+           ============================================ */
+        .formacao-item {
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid #eee;
+        }
+        .formacao-item:last-child {
+            border-bottom: none;
+        }
+        .instituicao {
+            color: #e61476;
+            font-weight: bold;
+            margin: var(--space-xs) 0;
+            display: block;
+        }
+        .periodo {
+            color: #7f8c8d;
+            display: block;
+        }
+        .subtitle {
+            margin: var(--space-xxl) 0 var(--space-lg);
+            color: #051220;
+            font-size: 1.5rem;
+        }
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+        .curso-item {
+            background-color: white;
+            padding: var(--space-lg);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        .curso-item h4 {
+            color: #2c3e50;
+            margin-bottom: var(--space-sm);
+        }
+        /* ============================================
+           SEÇÃO "HABILIDADES E COMPETÊNCIAS"
+           ============================================ */
+        .habilidades-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xxl);
+        }
+        @media (min-width: 768px) {
+            .habilidades-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        .skill {
+            background-color: #f33990;
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+        .habilidades-comportamentais .skill {
+            background-color: #f33990;
+        }
+        .idiomas p {
+            background-color: white;
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-sm);
+        }
+        .projeto-destaque {
+            background-color: white;
+            padding: var(--space-xl);
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            margin-top: var(--space-lg);
+        }
+        /* ============================================
+           SEÇÃO "CONTATO" COM ESPAÇAMENTO PADRONIZADO
+           ============================================ */
+        #contato.section {
+            padding: var(--space-xxl) 0;
+        }
+        #contato .section-title {
+            margin-bottom: var(--space-xl);
+        }
+        .contato-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            margin-top: 0;
+        }
+        .contato-info {
+            padding: var(--space-lg);
+        }
+        .contato-info h3 {
+            margin-bottom: var(--space-md);
+            color: #2c3e50;
+        }
+        .contato-info > p:first-of-type {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin-bottom: var(--space-lg);
+            color: #2c3e50;
+            background-color: #f8f9fa;
+            padding: var(--space-md);
+            border-radius: 8px;
+            border-left: 4px solid #f33990;
+        }
+        .contato-detalhes {
+            margin: var(--space-lg) 0;
+        }
+        .contato-detalhes p {
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            padding: var(--space-xs) 0;
+        }
+        .contato-detalhes i {
+            margin-right: var(--icon-gap);
+            color: #f33990;
+            width: 20px;
+            text-align: center;
+            font-size: 1rem;
+        }
+        .contato-info h4 {
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-sm);
+            color: #2c3e50;
+        }
+        .objetivo {
+            background-color: #f8f9fa;
+            padding: var(--space-lg);
+            border-left: 4px solid #f33990;
+            font-style: italic;
+            margin: var(--space-lg) 0;
+            line-height: 1.6;
+            border-radius: 0 8px 8px 0;
+        }
+        /* ============================================
+           RODAPÉ
+           ============================================ */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: var(--space-xl) 0;
+        }
+        /* ============================================
+           RESPONSIVIDADE
+           ============================================ */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #2c3e50;
+                padding: var(--space-lg);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                gap: var(--space-md);
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 0;
+            }
+            .menu-btn {
+                display: block;
+            }
+            .hero {
+                padding: 120px 0 60px;
+                margin-top: 60px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: var(--space-sm);
+            }  
+            .hero h2 {
+                font-size: 1.3rem;
+                margin-bottom: var(--space-md);
+            }
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: var(--space-lg);
+            }
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: var(--space-xl);
+            }
+            .experiencia-item,
+            .curso-item,
+            .projeto-destaque {
+                padding: var(--space-lg);
+            }
+            /* Ajustes específicos para contato em mobile */
+            #contato.section {
+                padding: var(--space-xl) 0;
+            }
+            .contato-info {
+                padding: var(--space-md);
+            }
+            .contato-info > p:first-of-type {
+                padding: var(--space-md);
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .section {
+                padding: 48px 0;
+            }
+            .cursos-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+            /* REMOVER TEXTURA EM DISPOSITIVOS MUITO PEQUENOS */
+            body {
+                background-image: none;
+                background-color: #ffffff;
+            }
+            /* Ajustes específicos para contato em telas pequenas */
+            #contato.section {
+                padding: 40px 0;
+            }
+            .contato-info h3 {
+                font-size: 1.4rem;
+            }
+            .objetivo {
+                padding: var(--space-md);
+                font-size: 0.95rem;
+            }
+            .skills {
+                gap: var(--space-xs);
+            } 
+            .skill {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- MENU DE NAVEGAÇÃO -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#inicio" class="logo">Daniela Campos</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <!-- Botão do menu mobile será adicionado via JavaScript -->
+        </div>
+    </nav>
+    <!-- SEÇÃO INICIAL -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1 id="typewriter">Daniela Campos</h1>
+            <h2>Cientista de Dados & Desenvolvedora em Formação</h2>
+            <p>Graduanda em Ciência de Dados e IA | Apaixonada por tecnologia, arte e inovação</p>
+            <a href="#contato" class="btn">Entre em Contato</a>
+        </div>
+    </section>
+    <!-- SEÇÃO SOBRE MIM -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="sobre-content">
+                <div class="sobre-texto">
+                    <p>Tenho 19 anos, moro em Santo André - SP e sou estudante de Ciência de Dados e Inteligência Artificial no Centro Universitário Fundação Santo André (período noturno, 2024-2027).</p>
+                    <p>Minha abordagem é criativa e inovadora, conectando paixão por artes digitais, jogos, robótica e tecnologia.</p>
+                    <h3>Curiosidades:</h3>
+                    <ul>
+                        <li><strong>Desenho:</strong> Participei de cursos e competições para aprimorar diferentes estilos</li>
+                        <li><strong>Ballet:</strong> Pratiquei por 5 anos e participei de espetáculos</li>
+                        <li><strong>Jogos:</strong> Fã de jogos com modo história e online</li>
+                        <li><strong>Robótica:</strong> Interesse por entretenimento e programação de máquinas</li>
+                        <li><strong>Tecnologia:</strong> Inspirada pelo meu pai e irmã que atuam na área</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SEÇÃO EXPERIÊNCIA -->
+    <section id="experiencia" class="section dark">
+        <div class="container">
+            <h2 class="section-title">Experiência Profissional</h2>
+            <div class="experiencia-item">
+                <h3>Analista de Operações - Facilities</h3>
+                <span class="empresa">RZK Concessões | Jul - Out 2025</span>
+                <ul>
+                    <li>Gestão operacional de terminais e estações</li>
+                    <li>Controle e rateio de custos de utilidades</li>
+                    <li>Padronização e gestão de processos e planilhas</li>
+                    <li>Supervisão da qualidade dos serviços terceirizados</li>
+                </ul>
+            </div>
+            <div class="experiencia-item">
+                <h3>Analista de Dados</h3>
+                <span class="empresa">RZK Concessões | Jun - Jul 2025</span>
+                <ul>
+                    <li>Análise, coleta e tratamento de informações financeiras</li>
+                    <li>Desenvolvimento de planilhas com dados financeiros</li>
+                    <li>Colaboração para alinhamento das informações aos objetivos organizacionais</li>
+                </ul>
+            </div>
+            <div class="experiencia-item">
+                <h3>Assistente Administrativo Comercial</h3>
+                <span class="empresa">RZK Concessões | Ago 2024 - Mai 2025</span>
+                <ul>
+                    <li>Executiva de vendas prospectando clientes via CRM Kommo</li>
+                    <li>Desenvolvimento de estratégias comerciais e acompanhamento de contratos</li>
+                    <li>Gestão de pagamentos e conferência financeira</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- SEÇÃO FORMAÇÃO -->
+    <section id="formacao" class="section">
+        <div class="container">
+            <h2 class="section-title">Formação Acadêmica</h2>
+            <div class="formacao-item">
+                <h3>Ciência de Dados e Inteligência Artificial</h3>
+                <span class="instituicao">Centro Universitário Fundação Santo André - SP</span>
+                <span class="periodo">2024 - Presente (Término previsto: 2027) | Período Noturno</span>
+            </div>
+            <div class="formacao-item">
+                <h3>Curso Técnico em Informática</h3>
+                <span class="instituicao">Centro Educacional ETIP - SP</span>
+                <span class="periodo">2021 - 2023 | Concluído</span>
+            </div>
+            <h3 class="subtitle">Cursos e Certificações</h3>
+            <div class="cursos-grid">
+                <div class="curso-item">
+                    <h4>Power BI - Básico/Avançado</h4>
+                    <p>Udemy | Início Fev/2025</p>
+                </div>
+                <div class="curso-item">
+                    <h4>Excel - Intermediário</h4>
+                    <p>Bradesco | Concluído Mar/2024</p>
+                </div>
+                <div class="curso-item">
+                    <h4>Python - Básico</h4>
+                    <p>Bradesco | Concluído Fev/2024</p>
+                </div>
+                <div class="curso-item">
+                    <h4>Inglês - Iniciante/Intermediário</h4>
+                    <p>Concluído Out/2023</p>
+                </div>
+                <div class="curso-item">
+                    <h4>CONECTADAS</h4>
+                    <p>Mercado Livre | Concluído Jul/2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SEÇÃO HABILIDADES -->
+    <section id="habilidades" class="section dark">
+        <div class="container">
+            <h2 class="section-title">Habilidades e Competências</h2>
+            <div class="habilidades-container">
+                <div class="habilidades-tecnicas">
+                    <h3>Técnicas</h3>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">Power BI</span>
+                        <span class="skill">SQL</span>
+                        <span class="skill">Excel/VBA</span>
+                        <span class="skill">HTML/CSS</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">PHP</span>
+                        <span class="skill">C#</span>
+                        <span class="skill">AWS</span>
+                        <span class="skill">Pacote Office</span>
+                    </div>
+                </div>
+                <div class="habilidades-comportamentais">
+                    <h3>Comportamentais</h3>
+                    <div class="skills">
+                        <span class="skill">Proatividade</span>
+                        <span class="skill">Criatividade</span>
+                        <span class="skill">Responsabilidade</span>
+                        <span class="skill">Organização</span>
+                        <span class="skill">Boa comunicação</span>
+                        <span class="skill">Relacionamento interpessoal</span>
+                        <span class="skill">Comprometimento</span>
+                        <span class="skill">Capacidade analítica</span>
+                    </div>
+                </div>
+            </div>
+            <div class="idiomas">
+                <h3>Idiomas</h3>
+                <p>Inglês: Intermediário</p>
+                <p>Espanhol: Básico</p>
+            </div>
+            <div class="projeto-destaque">
+                <h3>Projeto em Destaque</h3>
+                <p><strong>ReviveTech</strong> - Projeto acadêmico desenvolvido com colegas de classe, buscando promover soluções inovadoras e sustentáveis na área tecnológica. Clique abaixo para vizualizá-lo</p>
+                <a href="https://revivetechbussines-prog.github.io/revivetech/" class="btn-small" target="_blank">Ver Projeto</a>
+            </div>
+        </div>
+    </section>
+    <!-- SEÇÃO CONTATO -->
+    <section id="contato" class="section">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            <div class="contato-container">
+                <div class="contato-info">
+                    <h3>Entre em contato comigo!</h3>
+                    <p>Estou em busca de oportunidades como <strong>Estágio, Júnior ou Trainee</strong> em diversas áreas da tecnologia, com ênfase em Dados e Design UX.</p>
+                    <div class="contato-detalhes">
+                        <p><i class="fas fa-envelope"></i> danii1701campos@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> (11) 93489-6570</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Santo André - São Paulo</p>
+                        <p><i class="fab fa-linkedin"></i> https://www.linkedin.com/in/daniela-campos-9911802b9/</p>
+                    </div>
+                    <h4>Meus Objetivos:</h4>
+                    <p class="objetivo">"Integrar meus conhecimentos da área de Ciência de Dados e IA ao ambiente profissional, criando soluções dinâmicas que promovam o crescimento e inovação para a empresa."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Daniela Campos.</p>
+            <p>Site desenvolvido em HTML, CSS e JavaScript.</p>
+        </div>
+    </footer>
+    <script>
+        // ============================================
+        // MENU RESPONSIVO
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelector('.nav-links');  
+            // Criar botão do menu mobile
+            const menuBtn = document.createElement('button');
+            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            menuBtn.className = 'menu-btn';
+            menuBtn.setAttribute('aria-label', 'Abrir menu');
+            navbar.querySelector('.container').appendChild(menuBtn);
+            // Alternar menu ao clicar no botão
+            menuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+            });
+            // Fechar menu ao clicar em um link (mobile)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('show');
+                    }
+                });
+            });
+            // Ajustar menu ao redimensionar a janela
+            function adjustMenu() {
+                if (window.innerWidth > 768) {
+                    navLinks.classList.remove('show');
+                    navLinks.style.display = 'flex';
+                } else {
+                    navLinks.style.display = 'none';
+                }
+            }
+            window.addEventListener('resize', adjustMenu);
+            adjustMenu();
+        });
+        // ============================================
+        // SCROLL SUAVE PARA LINKS INTERNOS
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navbarHeight = document.getElementById('navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    // Atualizar URL sem recarregar a página
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
+        // ============================================
+        // DESTAQUE DA SEÇÃO ATIVA NO MENU
+        // ============================================
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const scrollPosition = window.scrollY + 100;
+            let currentSectionId = '';
+            // Encontrar a seção atual
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionId = section.id;
+                }
+            });
+            // Atualizar links ativos no menu
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        // ============================================
+        // EFEITO DE DIGITAÇÃO NO TÍTULO
+        // ============================================
+        const typewriterElement = document.getElementById('typewriter');
+        if (typewriterElement) {
+            const text = typewriterElement.textContent;
+            typewriterElement.textContent = '';
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    typewriterElement.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 130);
+                }
+            }
+          // Iniciar efeito após um pequeno delay
+            setTimeout(typeWriter, 500);
+        }
+        // ============================================
+        // ANIMAÇÃO SUAVE AO ROLAR PARA AS SEÇÕES
+        // ============================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        // Aplicar animação às seções
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
