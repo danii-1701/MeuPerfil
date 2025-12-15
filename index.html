@@ -3,191 +3,1042 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniela Campos - Portfólio Online</title>
+    <title>Daniela Campos | Portfólio</title>
+    <!-- Ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ============================================
+           VARIÁVEIS DE ESPAÇAMENTO PADRONIZADAS
+           ============================================ */
+        :root {
+            /* ESPAÇAMENTOS PADRÃO (múltiplos de 8px) */
+            --space-xs: 8px;
+            --space-sm: 12px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-xxl: 40px;
+            --space-xxxl: 48px;
+            /* ESPAÇAMENTOS ESPECÍFICOS */
+            --icon-gap: 12px;
+            --button-padding: 12px 24px;
+            --card-padding: 24px;
+            --section-padding: 64px 0;
+            --element-gap: 16px;
+            --line-height: 1.6;
+        }
+        /* ============================================
+           RESET E CONFIGURAÇÕES GERAIS
+           ============================================ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
         body {
-            background: linear-gradient(135deg, #051220, #1a2a3a);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: var(--line-height);
+            color: #333;
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(rgba(52, 152, 219, 0.08) 1.5px, transparent 1.5px);
+            background-size: 60px 60px;
+            background-position: 0 0;
+            background-attachment: fixed;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        /* ============================================
+           NAVEGAÇÃO (MENU SUPERIOR) - MOBILE FIRST
+           ============================================ */
+        #navbar {
+            background-color: #051220;
             color: white;
-            min-height: 100vh;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        #navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) var(--space-md);
+            min-height: 60px;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            padding: var(--space-xs) 0;
+            z-index: 1001;
+        }
+        .nav-links {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #051220e6;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: var(--space-xl);
+            z-index: 1000;
+            margin: 0;
+        }
+        .nav-links.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .nav-links li {
+            margin: var(--space-sm) 0;
+            width: 100%;
+            text-align: center;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2rem;
+            padding: var(--space-sm) var(--space-lg);
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #f33990;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: var(--space-xs);
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
+        .menu-btn.close {
+            position: absolute;
+            top: var(--space-sm);
+            right: var(--space-md);
+        }
+        /* ============================================
+           SEÇÃO HERO - OTIMIZADO PARA MOBILE
+           ============================================ */
+        .hero {
+            background-color: #051220;
+            color: white;
+            text-align: center;
+            padding: 100px 0 60px;
+            margin-top: 60px;
+            min-height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            background-image: none !important;
+        }
+        .hero .container {
+            padding: 0 var(--space-md);
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: var(--space-sm);
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .hero h2 {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-lg);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        .hero p {
+            font-size: 1rem;
+            max-width: 100%;
+            margin: 0 auto var(--space-xl);
+            line-height: 1.6;
+            padding: 0 var(--space-xs);
+        }
+        /* ============================================
+           BOTÕES OTIMIZADOS PARA TOUCH
+           ============================================ */
+        .btn {
+            display: inline-block;
+            background-color: #f33990;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1.5;
+            min-height: 48px;
+            touch-action: manipulation;
+        }
+        .btn:hover {
+            background-color: #e61476;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(243, 57, 144, 0.3);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .btn-small {
+            display: inline-block;
+            background-color: #e61476;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: var(--space-md);
+            font-size: 0.9rem;
+            min-height: 40px;
+            touch-action: manipulation;
+        }
+        .btn-small:hover {
+            background-color: #d0136a;
+            transform: translateY(-2px);
+        }
+        /* ============================================
+           SEÇÕES GERAIS - MOBILE OPTIMIZED
+           ============================================ */
+        .section {
+            padding: 48px 0;
+            scroll-margin-top: 60px;
+        }
+        .section.dark {
+            background-color: #f5f5f5;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: var(--space-xl);
+            color: #051220;
+            padding: 0 var(--space-sm);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #e61476;
+            margin: var(--space-sm) auto var(--space-lg);
+        }
+        /* ============================================
+           SEÇÃO "SOBRE MIM" - MOBILE
+           ============================================ */
+        .sobre-content {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            line-height: 1.6;
+            gap: var(--space-lg);
         }
-        
-        .container {
-            max-width: 800px;
-            width: 100%;
+        .sobre-texto h3 {
+            margin: var(--space-lg) 0 var(--space-md);
+            color: #2c3e50;
+            font-size: 1.4rem;
         }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            color: #f33990;
-            text-shadow: 0 2px 10px rgba(243, 57, 144, 0.3);
+        .sobre-texto ul {
+            list-style-position: inside;
+            margin-left: 0;
+            padding-left: var(--space-sm);
         }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-            color: #a0c8ff;
+        .sobre-texto li {
+            margin-bottom: var(--space-sm);
+            padding-left: var(--space-xs);
+            line-height: 1.5;
         }
-        
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* ============================================
+           SEÇÃO "EXPERIÊNCIA" - MOBILE
+           ============================================ */
+        .experiencia-item {
+            background-color: white;
+            padding: var(--space-lg);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #e61476;
         }
-        
-        .success-badge {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            margin: 20px 0;
+        .experiencia-item h3 {
+            color: #051220;
+            margin-bottom: var(--space-xs);
+            font-size: 1.3rem;
+        }
+        .empresa {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: var(--space-sm);
+            display: block;
+            font-size: 0.95rem;
+        }
+        .experiencia-item ul {
+            margin-left: var(--space-md);
+            padding-left: 0;
+        }
+        .experiencia-item li {
+            margin-bottom: var(--space-xs);
+            font-size: 0.95rem;
+        }
+        /* ============================================
+           SEÇÃO "FORMAÇÃO" - MOBILE
+           ============================================ */
+        .formacao-item {
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid #eee;
+        }
+        .formacao-item:last-child {
+            border-bottom: none;
+        }
+        .formacao-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--space-xs);
+        }
+        .instituicao {
+            color: #e61476;
             font-weight: bold;
-            animation: pulse 2s infinite;
+            margin: var(--space-xs) 0;
+            display: block;
+            font-size: 0.95rem;
         }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .periodo {
+            color: #7f8c8d;
+            display: block;
+            font-size: 0.9rem;
         }
-        
-        .contact-info {
+        .subtitle {
+            margin: var(--space-xl) 0 var(--space-lg);
+            color: #051220;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+        }
+        .curso-item {
+            background-color: white;
+            padding: var(--space-lg);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .curso-item h4 {
+            color: #2c3e50;
+            margin-bottom: var(--space-sm);
+            font-size: 1.1rem;
+        }
+        /* ============================================
+           SEÇÃO "HABILIDADES" - MOBILE
+           ============================================ */
+        .habilidades-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+        .habilidades-container h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--space-sm);
+        }
+        .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 30px;
+            gap: 8px;
+            margin-top: var(--space-sm);
         }
-        
-        .contact-item {
-            background: rgba(243, 57, 144, 0.2);
-            padding: 15px 25px;
-            border-radius: 10px;
-            border: 1px solid rgba(243, 57, 144, 0.3);
-            transition: transform 0.3s;
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        
-        .tech-item {
-            background: rgba(52, 152, 219, 0.2);
-            padding: 8px 16px;
+        .skill {
+            background-color: #f33990;
+            color: white;
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .habilidades-comportamentais .skill {
+            background-color: #f33990;
+        }
+        .idiomas p {
+            background-color: white;
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-sm);
+            font-size: 0.95rem;
+        }
+        .projeto-destaque {
+            background-color: white;
+            padding: var(--space-lg);
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            margin-top: var(--space-lg);
+        }
+        .projeto-destaque h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--space-sm);
+        }
+        .projeto-destaque p {
+            font-size: 0.95rem;
+            margin-bottom: var(--space-md);
+        }
+        /* ============================================
+           SEÇÃO "CONTATO" - MOBILE
+           ============================================ */
+        #contato.section {
+            padding: 48px 0;
+        }
+        #contato .section-title {
+            margin-bottom: var(--space-lg);
+        }
+        .contato-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+        .contato-info {
+            padding: var(--space-md);
+        }
+        .contato-info h3 {
+            margin-bottom: var(--space-md);
+            color: #2c3e50;
+            font-size: 1.4rem;
+            text-align: center;
         }
         
+        .contato-detalhes {
+            margin: var(--space-lg) 0;
+        }
+        .contato-detalhes p {
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: flex-start;
+            padding: var(--space-xs) 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+        .contato-detalhes i {
+            margin-right: var(--icon-gap);
+            color: #f33990;
+            width: 20px;
+            text-align: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .contato-info h4 {
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-sm);
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+        .objetivo {
+            background-color: #f8f9fa;
+            padding: var(--space-md);
+            border-left: 4px solid #f33990;
+            font-style: italic;
+            margin: var(--space-lg) 0;
+            line-height: 1.6;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+        /* ============================================
+           RODAPÉ
+           ============================================ */
         footer {
-            margin-top: 40px;
-            color: rgba(255, 255, 255, 0.7);
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: var(--space-lg) 0;
             font-size: 0.9rem;
         }
-        
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.4rem; }
-            .card { padding: 25px; }
+        footer p {
+            margin-bottom: var(--space-sm);
+            line-height: 1.4;
+        }
+        /* ============================================
+           MEDIA QUERIES PARA TELAS MAIORES
+           ============================================ */
+        @media (min-width: 768px) {
+            html {
+                font-size: 17px;
+            }
+            .container {
+                padding: 0 var(--space-lg);
+            }
+            /* NAVEGAÇÃO DESKTOP */
+            .menu-btn {
+                display: none;
+            }
+            .nav-links {
+                display: flex !important;
+                position: static;
+                flex-direction: row;
+                height: auto;
+                width: auto;
+                background: none;
+                backdrop-filter: none;
+                padding: 0;
+                margin: 0;
+            }
+            .nav-links li {
+                margin: 0;
+                width: auto;
+            }
+            .nav-links a {
+                font-size: 1rem;
+                padding: var(--space-xs) var(--space-sm);
+                margin: 0 var(--space-xs);
+            }
+            .nav-links a:hover,
+            .nav-links a.active {
+                background-color: transparent;
+                color: #f33990;
+                transform: none;
+                border-bottom: 2px solid #f33990;
+            }
+            /* HERO */
+            .hero {
+                padding: 140px 0 80px;
+                margin-top: 70px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+                max-width: 700px;
+                padding: 0;
+            }
+            /* SEÇÕES */
+            .section {
+                padding: 64px 0;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .section-title::after {
+                width: 80px;
+                margin: var(--space-md) auto var(--space-xl);
+            }
+            /* HABILIDADES */
+            .habilidades-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* CURSOS */
+            .cursos-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: var(--space-lg);
+            }
+            /* CONTATO */
+            .contato-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 var(--space-xl);
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .skills {
+                gap: 6px;
+            }
+            .skill {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+        }
+        /* ============================================
+           UTILITÁRIOS PARA MOBILE
+           ============================================ */
+        /* Prevenir zoom em inputs no iOS */
+        @media screen and (max-width: 768px) {
+            input,
+            select,
+            textarea {
+                font-size: 16px !important;
+            }
+        }
+        /* Melhorar legibilidade em mobile */
+        p, li, span, a {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Animações suaves */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <h1>Daniela Campos</h1>
+    <!-- MENU DE NAVEGAÇÃO -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#inicio" class="logo">Daniela Campos</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <button class="menu-btn" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Restante do conteúdo permanece igual... -->
+    <!-- SEÇÃO INICIAL -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1 id="typewriter">Daniela Campos</h1>
             <h2>Cientista de Dados & Desenvolvedora em Formação</h2>
-            
-            <div class="success-badge">
-                ✅ SITE PUBLICADO COM SUCESSO!
-            </div>
-            
             <p>Graduanda em Ciência de Dados e IA | Apaixonada por tecnologia, arte e inovação</p>
-            
-            <div class="tech-stack">
-                <span class="tech-item">Python</span>
-                <span class="tech-item">Power BI</span>
-                <span class="tech-item">SQL</span>
-                <span class="tech-item">HTML/CSS</span>
-                <span class="tech-item">JavaScript</span>
-                <span class="tech-item">Ciência de Dados</span>
+            <a href="#contato" class="btn">Entre em Contato</a>
+        </div>
+    </section>
+
+    <!-- As outras seções permanecem iguais -->
+    <!-- SEÇÃO SOBRE MIM -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="sobre-content">
+                <div class="sobre-texto">
+                    <p>Tenho 19 anos, moro em Santo André - SP e sou estudante de Ciência de Dados e Inteligência Artificial no Centro Universitário Fundação Santo André (período noturno, 2024-2027).</p>
+                    <p>Minha abordagem é criativa e inovadora, conectando paixão por artes digitais, jogos, robótica e tecnologia.</p>
+                    <h3>Curiosidades:</h3>
+                    <ul>
+                        <li><strong>Desenho:</strong> Participei de cursos e competições para aprimorar diferentes estilos</li>
+                        <li><strong>Ballet:</strong> Pratiquei por 5 anos e participei de espetáculos</li>
+                        <li><strong>Jogos:</strong> Fã de jogos com modo história e online</li>
+                        <li><strong>Robótica:</strong> Interesse por entretenimento e programação de máquinas</li>
+                        <li><strong>Tecnologia:</strong> Inspirada pelo meu pai e irmã que atuam na área</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        
-        <div class="contact-info">
-            <div class="contact-item">
-                <strong>📧 Email:</strong><br>
-                danii1701campos@gmail.com
+    </section>
+
+    <!-- SEÇÃO EXPERIÊNCIA -->
+    <section id="experiencia" class="section dark">
+        <div class="container">
+            <h2 class="section-title">Experiência Profissional</h2>
+            <div class="experiencia-item">
+                <h3>Analista de Operações - Facilities</h3>
+                <span class="empresa">RZK Concessões | Jul - Out 2025</span>
+                <ul>
+                    <li>Gestão operacional de terminais e estações</li>
+                    <li>Controle e rateio de custos de utilidades</li>
+                    <li>Padronização e gestão de processos e planilhas</li>
+                    <li>Supervisão da qualidade dos serviços terceirizados</li>
+                </ul>
             </div>
-            <div class="contact-item">
-                <strong>📱 WhatsApp:</strong><br>
-                (11) 93489-6570
+            <div class="experiencia-item">
+                <h3>Analista de Dados</h3>
+                <span class="empresa">RZK Concessões | Jun - Jul 2025</span>
+                <ul>
+                    <li>Análise, coleta e tratamento de informações financeiras</li>
+                    <li>Desenvolvimento de planilhas com dados financeiros</li>
+                    <li>Colaboração para alinhamento das informações aos objetivos organizacionais</li>
+                </ul>
             </div>
-            <div class="contact-item">
-                <strong>📍 Localização:</strong><br>
-                Santo André - SP
+            <div class="experiencia-item">
+                <h3>Assistente Administrativo Comercial</h3>
+                <span class="empresa">RZK Concessões | Ago 2024 - Mai 2025</span>
+                <ul>
+                    <li>Executiva de vendas prospectando clientes via CRM Kommo</li>
+                    <li>Desenvolvimento de estratégias comerciais e acompanhamento de contratos</li>
+                    <li>Gestão de pagamentos e conferência financeira</li>
+                </ul>
             </div>
         </div>
-        
-        <footer>
-            <p>🚀 Site desenvolvido com HTML, CSS e JavaScript</p>
-            <p>© 2025 Daniela Campos - Todos os direitos reservados</p>
-            <p style="margin-top: 10px; font-size: 0.8rem; color: rgba(255, 255, 255, 0.5);">
-                GitHub Pages funcionando perfeitamente!
-            </p>
-        </footer>
-    </div>
-    
+    </section>
+
+    <!-- SEÇÃO FORMAÇÃO -->
+    <section id="formacao" class="section">
+        <div class="container">
+            <h2 class="section-title">Formação Acadêmica</h2>
+            <div class="formacao-item">
+                <h3>Ciência de Dados e Inteligência Artificial</h3>
+                <span class="instituicao">Centro Universitário Fundação Santo André - SP</span>
+                <span class="periodo">2024 - Presente (Término previsto: 2027) | Período Noturno</span>
+            </div>
+            <div class="formacao-item">
+                <h3>Curso Técnico em Informática</h3>
+                <span class="instituicao">Centro Educacional ETIP - SP</span>
+                <span class="periodo">2021 - 2023 | Concluído</span>
+            </div>
+            <h3 class="subtitle">Cursos e Certificações</h3>
+            <div class="cursos-grid">
+                <div class="curso-item">
+                    <h4>Power BI - Básico/Avançado</h4>
+                    <p>Udemy | Início Fev/2025</p>
+                </div>
+                <div class="curso-item">
+                    <h4>Excel - Intermediário</h4>
+                    <p>Bradesco | Concluído Mar/2024</p>
+                </div>
+                <div class="curso-item">
+                    <h4>Python - Básico</h4>
+                    <p>Bradesco | Concluído Fev/2024</p>
+                </div>
+                <div class="curso-item">
+                    <h4>Inglês - Iniciante/Intermediário</h4>
+                    <p>Concluído Out/2023</p>
+                </div>
+                <div class="curso-item">
+                    <h4>CONECTADAS</h4>
+                    <p>Mercado Livre | Concluído Jul/2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO HABILIDADES -->
+    <section id="habilidades" class="section dark">
+        <div class="container">
+            <h2 class="section-title">Habilidades e Competências</h2>
+            <div class="habilidades-container">
+                <div class="habilidades-tecnicas">
+                    <h3>Técnicas</h3>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">Power BI</span>
+                        <span class="skill">SQL</span>
+                        <span class="skill">Excel/VBA</span>
+                        <span class="skill">HTML/CSS</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">PHP</span>
+                        <span class="skill">C#</span>
+                        <span class="skill">AWS</span>
+                        <span class="skill">Pacote Office</span>
+                    </div>
+                </div>
+                <div class="habilidades-comportamentais">
+                    <h3>Comportamentais</h3>
+                    <div class="skills">
+                        <span class="skill">Proatividade</span>
+                        <span class="skill">Criatividade</span>
+                        <span class="skill">Responsabilidade</span>
+                        <span class="skill">Organização</span>
+                        <span class="skill">Boa comunicação</span>
+                        <span class="skill">Relacionamento interpessoal</span>
+                        <span class="skill">Comprometimento</span>
+                        <span class="skill">Capacidade analítica</span>
+                    </div>
+                </div>
+            </div>
+            <div class="idiomas">
+                <h3>Idiomas</h3>
+                <p>Inglês: Intermediário</p>
+                <p>Espanhol: Básico</p>
+            </div>
+            <div class="projeto-destaque">
+                <h3>Projeto em Destaque</h3>
+                <p><strong>ReviveTech</strong> - Projeto acadêmico desenvolvido com colegas de classe, buscando promover soluções inovadoras e sustentáveis na área tecnológica. Clique abaixo para vizualizá-lo</p>
+                <a href="https://revivetechbussines-prog.github.io/revivetech/" class="btn-small" target="_blank">Ver Projeto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CONTATO -->
+    <section id="contato" class="section">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            <div class="contato-container">
+                <div class="contato-info">
+                    <h3>Entre em contato comigo!</h3>
+                    <p>Estou em busca de oportunidades como <strong>Estágio, Júnior ou Trainee</strong> em diversas áreas da tecnologia, com ênfase em Dados e Design UX.</p>
+                    <div class="contato-detalhes">
+                        <p><i class="fas fa-envelope"></i> danii1701campos@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> (11) 93489-6570</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Santo André - São Paulo</p>
+                        <p><i class="fab fa-linkedin"></i> https://www.linkedin.com/in/daniela-campos-9911802b9/</p>
+                    </div>
+                    <h4>Meus Objetivos:</h4>
+                    <p class="objetivo">"Integrar meus conhecimentos da área de Ciência de Dados e IA ao ambiente profissional, criando soluções dinâmicas que promovam o crescimento e inovação para a empresa."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Daniela Campos.</p>
+            <p>Site desenvolvido em HTML, CSS e JavaScript.</p>
+        </div>
+    </footer>
+
     <script>
-        // Confirmação no console
-        console.log("🎉 Site de Daniela Campos carregado com sucesso!");
-        console.log("📅 Publicado em: " + new Date().toLocaleDateString('pt-BR'));
-        console.log("🕒 Horário: " + new Date().toLocaleTimeString('pt-BR'));
-        console.log("✅ GitHub Pages: Ativo");
-        
-        // Efeito de digitação no título
-        const title = document.querySelector('h1');
-        const originalText = title.textContent;
-        title.textContent = '';
-        
-        let i = 0;
-        function typeWriter() {
-            if (i < originalText.length) {
-                title.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
+        // ============================================
+        // MENU RESPONSIVO MELHORADO
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelector('.nav-links');
+            const menuBtn = document.querySelector('.menu-btn');
+            const menuIcon = menuBtn.querySelector('i');
+            
+            // Alternar menu ao clicar no botão
+            menuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+                if (navLinks.classList.contains('show')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                    menuBtn.setAttribute('aria-label', 'Fechar menu');
+                    document.body.style.overflow = 'hidden'; // Prevenir scroll
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                    menuBtn.setAttribute('aria-label', 'Abrir menu');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Fechar menu ao clicar em um link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('show');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                    menuBtn.setAttribute('aria-label', 'Abrir menu');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+
+            // Fechar menu ao clicar fora
+            document.addEventListener('click', function(event) {
+                if (!navbar.contains(event.target) && navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                    menuBtn.setAttribute('aria-label', 'Abrir menu');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Prevenir fechamento ao clicar dentro do menu
+            navLinks.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+
+            // Fechar menu ao pressionar ESC
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                    menuBtn.setAttribute('aria-label', 'Abrir menu');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // ============================================
+        // SCROLL SUAVE MELHORADO PARA MOBILE
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navbarHeight = document.getElementById('navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Atualizar URL sem recarregar a página
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    } else {
+                        location.hash = targetId;
+                    }
+                }
+            });
+        });
+
+        // ============================================
+        // DESTAQUE DA SEÇÃO ATIVA - OTIMIZADO
+        // ============================================
+        function highlightActiveSection() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const scrollPosition = window.scrollY + 100;
+            let currentSectionId = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionId = section.id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
         }
-        
-        // Inicia após 1 segundo
-        setTimeout(typeWriter, 1000);
+
+        // Debounce para melhor performance
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(highlightActiveSection, 100);
+        });
+        highlightActiveSection(); // Chamar inicialmente
+
+        // ============================================
+        // EFEITO DE DIGITAÇÃO NO TÍTULO
+        // ============================================
+        const typewriterElement = document.getElementById('typewriter');
+        if (typewriterElement) {
+            const text = typewriterElement.textContent;
+            typewriterElement.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typewriterElement.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 130);
+                }
+            }
+            
+            // Iniciar efeito após um pequeno delay
+            setTimeout(typeWriter, 500);
+        }
+
+        // ============================================
+        // ANIMAÇÃO SUAVE - PERFORMANCE OTIMIZADA
+        // ============================================
+        if ('IntersectionObserver' in window) {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // ============================================
+        // PREVENIR COMPORTAMENTOS INDESEJADOS NO MOBILE
+        // ============================================
+        // Prevenir double-tap zoom
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Prevenir pull-to-refresh no iOS
+        document.body.addEventListener('touchmove', function(event) {
+            if (event.scale !== 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        // ============================================
+        // DETECTAR DISPOSITIVO TOUCH
+        // ============================================
+        function isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        }
+
+        if (isTouchDevice()) {
+            document.body.classList.add('touch-device');
+            // Aumentar área de toque para links importantes
+            document.querySelectorAll('.btn, .btn-small').forEach(btn => {
+                btn.style.minHeight = '44px';
+                btn.style.minWidth = '44px';
+                btn.style.display = 'inline-flex';
+                btn.style.alignItems = 'center';
+                btn.style.justifyContent = 'center';
+            });
+        }
     </script>
 </body>
 </html>
