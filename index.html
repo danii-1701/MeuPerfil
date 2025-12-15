@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniela Campos | Portfólio</title>
+    <title>Daniela Campos | Portfólio </title>
     <!-- Ícones do Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,20 +12,20 @@
            ============================================ */
         :root {
             /* ESPAÇAMENTOS PADRÃO (múltiplos de 8px) */
-            --space-xs: 8px;
-            --space-sm: 12px;
-            --space-md: 16px;
-            --space-lg: 24px;
-            --space-xl: 32px;
-            --space-xxl: 40px;
-            --space-xxxl: 48px;
+            --space-xs: 8px;     /* Muito pequeno */
+            --space-sm: 12px;    /* Pequeno */
+            --space-md: 16px;    /* Médio */
+            --space-lg: 24px;    /* Grande */
+            --space-xl: 32px;    /* Extra grande */
+            --space-xxl: 40px;   /* Duplo extra grande */
+            --space-xxxl: 48px;  /* Triplo extra grande */
             /* ESPAÇAMENTOS ESPECÍFICOS */
-            --icon-gap: 12px;
-            --button-padding: 12px 24px;
-            --card-padding: 24px;
-            --section-padding: 64px 0;
-            --element-gap: 16px;
-            --line-height: 1.6;
+            --icon-gap: 12px;    /* Espaço entre ícone e texto */
+            --button-padding: 12px 24px; /* Padding padrão de botões */
+            --card-padding: 24px; /* Padding padrão de cards */
+            --section-padding: 64px 0; /* Padding padrão de seções */
+            --element-gap: 16px; /* Gap entre elementos */
+            --line-height: 1.6;   /* Altura de linha padrão */
         }
         /* ============================================
            RESET E CONFIGURAÇÕES GERAIS
@@ -35,14 +35,11 @@
             padding: 0;
             box-sizing: border-box;
         }
-        html {
-            font-size: 16px;
-            -webkit-text-size-adjust: 100%;
-        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: var(--line-height);
             color: #333;
+            /* TEXTURA DISCRETA NO FUNDO DO SITE */
             background-color: #ffffff;
             background-image: 
                 radial-gradient(rgba(52, 152, 219, 0.08) 1.5px, transparent 1.5px);
@@ -50,16 +47,15 @@
             background-position: 0 0;
             background-attachment: fixed;
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
         .container {
-            width: 100%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--space-md);
+            padding: 0 var(--space-lg);
         }
         /* ============================================
-           NAVEGAÇÃO (MENU SUPERIOR) - MOBILE FIRST
+           NAVEGAÇÃO (MENU SUPERIOR)
            ============================================ */
         #navbar {
             background-color: #051220;
@@ -68,198 +64,136 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         #navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--space-sm) var(--space-md);
-            min-height: 60px;
+            padding: var(--space-md) var(--space-lg);
         }
         .logo {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: white;
             text-decoration: none;
             padding: var(--space-xs) 0;
-            z-index: 1001;
         }
         .nav-links {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: #051220e6;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            list-style: none;
-            padding: var(--space-xl);
-            z-index: 1000;
-            margin: 0;
-        }
-        .nav-links.show {
             display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .nav-links li {
-            margin: var(--space-sm) 0;
-            width: 100%;
-            text-align: center;
+            list-style: none;
+            gap: var(--space-lg);
         }
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            font-size: 1.2rem;
-            padding: var(--space-sm) var(--space-lg);
+            transition: color 0.3s;
+            padding: var(--space-xs) 0;
             display: block;
-            transition: all 0.3s ease;
-            border-radius: 8px;
         }
-        .nav-links a:hover,
+        .nav-links a:hover {
+            color: #f33990;
+        }
         .nav-links a.active {
-            background-color: #f33990;
-            color: white;
-            transform: translateY(-2px);
+            color: #f33990;
+            border-bottom: 2px solid #f33990;
         }
         .menu-btn {
-            display: block;
+            display: none;
             background: none;
             border: none;
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
             padding: var(--space-xs);
-            z-index: 1001;
-            transition: transform 0.3s ease;
-        }
-        .menu-btn:hover {
-            transform: scale(1.1);
-        }
-        .menu-btn.close {
-            position: absolute;
-            top: var(--space-sm);
-            right: var(--space-md);
         }
         /* ============================================
-           SEÇÃO HERO - OTIMIZADO PARA MOBILE
+           SEÇÃO HERO (INÍCIO / APRESENTAÇÃO)
            ============================================ */
         .hero {
             background-color: #051220;
             color: white;
             text-align: center;
-            padding: 100px 0 60px;
-            margin-top: 60px;
-            min-height: calc(100vh - 60px);
-            display: flex;
-            align-items: center;
+            padding: 140px 0 80px;
+            margin-top: 70px;
             background-image: none !important;
         }
-        .hero .container {
-            padding: 0 var(--space-md);
-        }
         .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: var(--space-sm);
+            font-size: 2.8rem;
+            margin-bottom: var(--space-md);
             line-height: 1.2;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
         }
         .hero h2 {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin-bottom: var(--space-lg);
             font-weight: 300;
             line-height: 1.4;
         }
         .hero p {
-            font-size: 1rem;
-            max-width: 100%;
+            font-size: 1.1rem;
+            max-width: 700px;
             margin: 0 auto var(--space-xl);
             line-height: 1.6;
-            padding: 0 var(--space-xs);
         }
         /* ============================================
-           BOTÕES OTIMIZADOS PARA TOUCH
+           BOTÕES COM ESPAÇAMENTO PADRONIZADO
            ============================================ */
         .btn {
             display: inline-block;
             background-color: #f33990;
             color: white;
-            padding: 14px 28px;
-            border-radius: 8px;
+            padding: var(--button-padding);
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s;
             border: none;
             cursor: pointer;
             font-size: 1rem;
             line-height: 1.5;
-            min-height: 48px;
-            touch-action: manipulation;
         }
         .btn:hover {
             background-color: #e61476;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(243, 57, 144, 0.3);
-        }
-        .btn:active {
-            transform: translateY(0);
         }
         .btn-small {
             display: inline-block;
             background-color: #e61476;
             color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 8px 16px;
+            border-radius: 5px;
             text-decoration: none;
             margin-top: var(--space-md);
             font-size: 0.9rem;
-            min-height: 40px;
-            touch-action: manipulation;
         }
         .btn-small:hover {
             background-color: #d0136a;
-            transform: translateY(-2px);
         }
         /* ============================================
-           SEÇÕES GERAIS - MOBILE OPTIMIZED
+           SEÇÕES GERAIS DO CONTEÚDO
            ============================================ */
         .section {
-            padding: 48px 0;
-            scroll-margin-top: 60px;
+            padding: var(--section-padding);
         }
         .section.dark {
             background-color: #f5f5f5;
         }
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: var(--space-xl);
+            font-size: 2.2rem;
+            margin-bottom: var(--space-xxl);
             color: #051220;
-            padding: 0 var(--space-sm);
         }
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 80px;
             height: 4px;
             background-color: #e61476;
-            margin: var(--space-sm) auto var(--space-lg);
+            margin: var(--space-md) auto var(--space-xl);
         }
         /* ============================================
-           SEÇÃO "SOBRE MIM" - MOBILE
+           SEÇÃO "SOBRE MIM"
            ============================================ */
         .sobre-content {
             display: flex;
@@ -267,127 +201,112 @@
             gap: var(--space-lg);
         }
         .sobre-texto h3 {
-            margin: var(--space-lg) 0 var(--space-md);
+            margin: var(--space-xl) 0 var(--space-md);
             color: #2c3e50;
-            font-size: 1.4rem;
         }
         .sobre-texto ul {
             list-style-position: inside;
             margin-left: 0;
-            padding-left: var(--space-sm);
         }
         .sobre-texto li {
             margin-bottom: var(--space-sm);
             padding-left: var(--space-xs);
-            line-height: 1.5;
         }
         /* ============================================
-           SEÇÃO "EXPERIÊNCIA" - MOBILE
+           SEÇÃO "EXPERIÊNCIA PROFISSIONAL"
            ============================================ */
         .experiencia-item {
             background-color: white;
-            padding: var(--space-lg);
+            padding: var(--space-xl);
             border-radius: 8px;
-            margin-bottom: var(--space-md);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: var(--space-lg);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             border-left: 4px solid #e61476;
         }
         .experiencia-item h3 {
             color: #051220;
             margin-bottom: var(--space-xs);
-            font-size: 1.3rem;
         }
         .empresa {
             color: #7f8c8d;
             font-style: italic;
-            margin-bottom: var(--space-sm);
+            margin-bottom: var(--space-md);
             display: block;
-            font-size: 0.95rem;
         }
         .experiencia-item ul {
-            margin-left: var(--space-md);
-            padding-left: 0;
+            margin-left: var(--space-lg);
         }
         .experiencia-item li {
-            margin-bottom: var(--space-xs);
-            font-size: 0.95rem;
+            margin-bottom: var(--space-sm);
         }
         /* ============================================
-           SEÇÃO "FORMAÇÃO" - MOBILE
+           SEÇÃO "FORMAÇÃO ACADÊMICA"
            ============================================ */
         .formacao-item {
-            margin-bottom: var(--space-lg);
-            padding-bottom: var(--space-md);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
             border-bottom: 1px solid #eee;
         }
         .formacao-item:last-child {
             border-bottom: none;
-        }
-        .formacao-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: var(--space-xs);
         }
         .instituicao {
             color: #e61476;
             font-weight: bold;
             margin: var(--space-xs) 0;
             display: block;
-            font-size: 0.95rem;
         }
         .periodo {
             color: #7f8c8d;
             display: block;
-            font-size: 0.9rem;
         }
         .subtitle {
-            margin: var(--space-xl) 0 var(--space-lg);
+            margin: var(--space-xxl) 0 var(--space-lg);
             color: #051220;
-            font-size: 1.4rem;
-            text-align: center;
+            font-size: 1.5rem;
         }
         .cursos-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-md);
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--space-lg);
         }
         .curso-item {
             background-color: white;
             padding: var(--space-lg);
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
         }
         .curso-item h4 {
             color: #2c3e50;
             margin-bottom: var(--space-sm);
-            font-size: 1.1rem;
         }
         /* ============================================
-           SEÇÃO "HABILIDADES" - MOBILE
+           SEÇÃO "HABILIDADES E COMPETÊNCIAS"
            ============================================ */
         .habilidades-container {
             display: grid;
             grid-template-columns: 1fr;
             gap: var(--space-xl);
-            margin-bottom: var(--space-xl);
+            margin-bottom: var(--space-xxl);
         }
-        .habilidades-container h3 {
-            font-size: 1.3rem;
-            margin-bottom: var(--space-sm);
+        @media (min-width: 768px) {
+            .habilidades-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: var(--space-sm);
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
         }
         .skill {
             background-color: #f33990;
             color: white;
-            padding: 6px 12px;
+            padding: var(--space-xs) var(--space-md);
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             display: inline-block;
-            white-space: nowrap;
         }
         .habilidades-comportamentais .skill {
             background-color: #f33990;
@@ -397,58 +316,54 @@
             padding: var(--space-md);
             border-radius: 8px;
             margin-bottom: var(--space-sm);
-            font-size: 0.95rem;
         }
         .projeto-destaque {
             background-color: white;
-            padding: var(--space-lg);
+            padding: var(--space-xl);
             border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
             margin-top: var(--space-lg);
         }
-        .projeto-destaque h3 {
-            font-size: 1.3rem;
-            margin-bottom: var(--space-sm);
-        }
-        .projeto-destaque p {
-            font-size: 0.95rem;
-            margin-bottom: var(--space-md);
-        }
         /* ============================================
-           SEÇÃO "CONTATO" - MOBILE
+           SEÇÃO "CONTATO" COM ESPAÇAMENTO PADRONIZADO
            ============================================ */
         #contato.section {
-            padding: 48px 0;
+            padding: var(--space-xxl) 0;
         }
         #contato .section-title {
-            margin-bottom: var(--space-lg);
+            margin-bottom: var(--space-xl);
         }
         .contato-container {
             display: grid;
             grid-template-columns: 1fr;
             gap: var(--space-lg);
+            margin-top: 0;
         }
         .contato-info {
-            padding: var(--space-md);
+            padding: var(--space-lg);
         }
         .contato-info h3 {
             margin-bottom: var(--space-md);
             color: #2c3e50;
-            font-size: 1.4rem;
-            text-align: center;
         }
-        
+        .contato-info > p:first-of-type {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin-bottom: var(--space-lg);
+            color: #2c3e50;
+            background-color: #f8f9fa;
+            padding: var(--space-md);
+            border-radius: 8px;
+            border-left: 4px solid #f33990;
+        }
         .contato-detalhes {
             margin: var(--space-lg) 0;
         }
         .contato-detalhes p {
             margin-bottom: var(--space-sm);
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             padding: var(--space-xs) 0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            word-break: break-word;
         }
         .contato-detalhes i {
             margin-right: var(--icon-gap);
@@ -456,24 +371,20 @@
             width: 20px;
             text-align: center;
             font-size: 1rem;
-            flex-shrink: 0;
-            margin-top: 2px;
         }
         .contato-info h4 {
             margin-top: var(--space-lg);
             margin-bottom: var(--space-sm);
             color: #2c3e50;
-            font-size: 1.2rem;
         }
         .objetivo {
             background-color: #f8f9fa;
-            padding: var(--space-md);
+            padding: var(--space-lg);
             border-left: 4px solid #f33990;
             font-style: italic;
             margin: var(--space-lg) 0;
             line-height: 1.6;
             border-radius: 0 8px 8px 0;
-            font-size: 0.95rem;
         }
         /* ============================================
            RODAPÉ
@@ -482,147 +393,110 @@
             background-color: #2c3e50;
             color: white;
             text-align: center;
-            padding: var(--space-lg) 0;
-            font-size: 0.9rem;
-        }
-        footer p {
-            margin-bottom: var(--space-sm);
-            line-height: 1.4;
+            padding: var(--space-xl) 0;
         }
         /* ============================================
-           MEDIA QUERIES PARA TELAS MAIORES
+           RESPONSIVIDADE
            ============================================ */
-        @media (min-width: 768px) {
-            html {
-                font-size: 17px;
-            }
-            .container {
-                padding: 0 var(--space-lg);
-            }
-            /* NAVEGAÇÃO DESKTOP */
-            .menu-btn {
-                display: none;
-            }
+        @media (max-width: 768px) {
             .nav-links {
-                display: flex !important;
-                position: static;
-                flex-direction: row;
-                height: auto;
-                width: auto;
-                background: none;
-                backdrop-filter: none;
-                padding: 0;
-                margin: 0;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #2c3e50;
+                padding: var(--space-lg);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                gap: var(--space-md);
+            }
+            .nav-links.show {
+                display: flex;
             }
             .nav-links li {
                 margin: 0;
-                width: auto;
             }
-            .nav-links a {
-                font-size: 1rem;
-                padding: var(--space-xs) var(--space-sm);
-                margin: 0 var(--space-xs);
+            .menu-btn {
+                display: block;
             }
-            .nav-links a:hover,
-            .nav-links a.active {
-                background-color: transparent;
-                color: #f33990;
-                transform: none;
-                border-bottom: 2px solid #f33990;
-            }
-            /* HERO */
             .hero {
-                padding: 140px 0 80px;
-                margin-top: 70px;
+                padding: 120px 0 60px;
+                margin-top: 60px;
             }
             .hero h1 {
-                font-size: 2.8rem;
-            }
+                font-size: 2.2rem;
+                margin-bottom: var(--space-sm);
+            }  
             .hero h2 {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+                margin-bottom: var(--space-md);
             }
             .hero p {
-                font-size: 1.1rem;
-                max-width: 700px;
-                padding: 0;
-            }
-            /* SEÇÕES */
-            .section {
-                padding: 64px 0;
+                font-size: 1rem;
+                margin-bottom: var(--space-lg);
             }
             .section-title {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
+                margin-bottom: var(--space-xl);
             }
-            .section-title::after {
-                width: 80px;
-                margin: var(--space-md) auto var(--space-xl);
+            .experiencia-item,
+            .curso-item,
+            .projeto-destaque {
+                padding: var(--space-lg);
             }
-            /* HABILIDADES */
-            .habilidades-container {
-                grid-template-columns: repeat(2, 1fr);
+            /* Ajustes específicos para contato em mobile */
+            #contato.section {
+                padding: var(--space-xl) 0;
             }
-            /* CURSOS */
-            .cursos-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: var(--space-lg);
+            .contato-info {
+                padding: var(--space-md);
             }
-            /* CONTATO */
-            .contato-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0 var(--space-xl);
-            }
-            .hero h1 {
-                font-size: 3rem;
-            }
-            .section-title {
-                font-size: 2.5rem;
+            .contato-info > p:first-of-type {
+                padding: var(--space-md);
             }
         }
-        @media (max-width: 380px) {
+        @media (max-width: 480px) {
             .hero h1 {
                 font-size: 1.8rem;
             }
             .hero h2 {
                 font-size: 1.1rem;
             }
-            .section-title {
-                font-size: 1.6rem;
-            }
-            .skills {
-                gap: 6px;
-            }
-            .skill {
-                padding: 5px 10px;
-                font-size: 0.8rem;
-            }
             .btn {
-                padding: 12px 24px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .section {
+                padding: 48px 0;
+            }
+            .cursos-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+            /* REMOVER TEXTURA EM DISPOSITIVOS MUITO PEQUENOS */
+            body {
+                background-image: none;
+                background-color: #ffffff;
+            }
+            /* Ajustes específicos para contato em telas pequenas */
+            #contato.section {
+                padding: 40px 0;
+            }
+            .contato-info h3 {
+                font-size: 1.4rem;
+            }
+            .objetivo {
+                padding: var(--space-md);
                 font-size: 0.95rem;
             }
-        }
-        /* ============================================
-           UTILITÁRIOS PARA MOBILE
-           ============================================ */
-        /* Prevenir zoom em inputs no iOS */
-        @media screen and (max-width: 768px) {
-            input,
-            select,
-            textarea {
-                font-size: 16px !important;
+            .skills {
+                gap: var(--space-xs);
+            } 
+            .skill {
+                padding: 6px 12px;
+                font-size: 0.85rem;
             }
-        }
-        /* Melhorar legibilidade em mobile */
-        p, li, span, a {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        /* Animações suaves */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
         }
     </style>
 </head>
@@ -639,13 +513,9 @@
                 <li><a href="#habilidades">Habilidades</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
-            <button class="menu-btn" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            <!-- Botão do menu mobile será adicionado via JavaScript -->
         </div>
     </nav>
-
-    <!-- Restante do conteúdo permanece igual... -->
     <!-- SEÇÃO INICIAL -->
     <section id="inicio" class="hero">
         <div class="container">
@@ -655,8 +525,6 @@
             <a href="#contato" class="btn">Entre em Contato</a>
         </div>
     </section>
-
-    <!-- As outras seções permanecem iguais -->
     <!-- SEÇÃO SOBRE MIM -->
     <section id="sobre" class="section">
         <div class="container">
@@ -677,7 +545,6 @@
             </div>
         </div>
     </section>
-
     <!-- SEÇÃO EXPERIÊNCIA -->
     <section id="experiencia" class="section dark">
         <div class="container">
@@ -712,7 +579,6 @@
             </div>
         </div>
     </section>
-
     <!-- SEÇÃO FORMAÇÃO -->
     <section id="formacao" class="section">
         <div class="container">
@@ -752,7 +618,6 @@
             </div>
         </div>
     </section>
-
     <!-- SEÇÃO HABILIDADES -->
     <section id="habilidades" class="section dark">
         <div class="container">
@@ -799,7 +664,6 @@
             </div>
         </div>
     </section>
-
     <!-- SEÇÃO CONTATO -->
     <section id="contato" class="section">
         <div class="container">
@@ -820,7 +684,6 @@
             </div>
         </div>
     </section>
-
     <!-- RODAPÉ -->
     <footer>
         <div class="container">
@@ -828,119 +691,81 @@
             <p>Site desenvolvido em HTML, CSS e JavaScript.</p>
         </div>
     </footer>
-
     <script>
         // ============================================
-        // MENU RESPONSIVO MELHORADO
+        // MENU RESPONSIVO
         // ============================================
         document.addEventListener('DOMContentLoaded', function() {
             const navbar = document.getElementById('navbar');
-            const navLinks = document.querySelector('.nav-links');
-            const menuBtn = document.querySelector('.menu-btn');
-            const menuIcon = menuBtn.querySelector('i');
-            
+            const navLinks = document.querySelector('.nav-links');  
+            // Criar botão do menu mobile
+            const menuBtn = document.createElement('button');
+            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            menuBtn.className = 'menu-btn';
+            menuBtn.setAttribute('aria-label', 'Abrir menu');
+            navbar.querySelector('.container').appendChild(menuBtn);
             // Alternar menu ao clicar no botão
             menuBtn.addEventListener('click', function() {
                 navLinks.classList.toggle('show');
-                if (navLinks.classList.contains('show')) {
-                    menuIcon.classList.remove('fa-bars');
-                    menuIcon.classList.add('fa-times');
-                    menuBtn.setAttribute('aria-label', 'Fechar menu');
-                    document.body.style.overflow = 'hidden'; // Prevenir scroll
-                } else {
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                    menuBtn.setAttribute('aria-label', 'Abrir menu');
-                    document.body.style.overflow = 'auto';
-                }
             });
-
-            // Fechar menu ao clicar em um link
+            // Fechar menu ao clicar em um link (mobile)
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', function() {
-                    navLinks.classList.remove('show');
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                    menuBtn.setAttribute('aria-label', 'Abrir menu');
-                    document.body.style.overflow = 'auto';
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('show');
+                    }
                 });
             });
-
-            // Fechar menu ao clicar fora
-            document.addEventListener('click', function(event) {
-                if (!navbar.contains(event.target) && navLinks.classList.contains('show')) {
+            // Ajustar menu ao redimensionar a janela
+            function adjustMenu() {
+                if (window.innerWidth > 768) {
                     navLinks.classList.remove('show');
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                    menuBtn.setAttribute('aria-label', 'Abrir menu');
-                    document.body.style.overflow = 'auto';
+                    navLinks.style.display = 'flex';
+                } else {
+                    navLinks.style.display = 'none';
                 }
-            });
-
-            // Prevenir fechamento ao clicar dentro do menu
-            navLinks.addEventListener('click', function(event) {
-                event.stopPropagation();
-            });
-
-            // Fechar menu ao pressionar ESC
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape' && navLinks.classList.contains('show')) {
-                    navLinks.classList.remove('show');
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                    menuBtn.setAttribute('aria-label', 'Abrir menu');
-                    document.body.style.overflow = 'auto';
-                }
-            });
+            }
+            window.addEventListener('resize', adjustMenu);
+            adjustMenu();
         });
-
         // ============================================
-        // SCROLL SUAVE MELHORADO PARA MOBILE
+        // SCROLL SUAVE PARA LINKS INTERNOS
         // ============================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     const navbarHeight = document.getElementById('navbar').offsetHeight;
                     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                    
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
-                    
                     // Atualizar URL sem recarregar a página
-                    if (history.pushState) {
-                        history.pushState(null, null, targetId);
-                    } else {
-                        location.hash = targetId;
-                    }
+                    history.pushState(null, null, targetId);
                 }
             });
         });
-
         // ============================================
-        // DESTAQUE DA SEÇÃO ATIVA - OTIMIZADO
+        // DESTAQUE DA SEÇÃO ATIVA NO MENU
         // ============================================
-        function highlightActiveSection() {
+        window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-links a');
             const scrollPosition = window.scrollY + 100;
             let currentSectionId = '';
-
+            // Encontrar a seção atual
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                
                 if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                     currentSectionId = section.id;
                 }
             });
-
+            // Atualizar links ativos no menu
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 const href = link.getAttribute('href');
@@ -948,16 +773,7 @@
                     link.classList.add('active');
                 }
             });
-        }
-
-        // Debounce para melhor performance
-        let scrollTimeout;
-        window.addEventListener('scroll', function() {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(highlightActiveSection, 100);
         });
-        highlightActiveSection(); // Chamar inicialmente
-
         // ============================================
         // EFEITO DE DIGITAÇÃO NO TÍTULO
         // ============================================
@@ -966,7 +782,6 @@
             const text = typewriterElement.textContent;
             typewriterElement.textContent = '';
             let i = 0;
-            
             function typeWriter() {
                 if (i < text.length) {
                     typewriterElement.textContent += text.charAt(i);
@@ -974,71 +789,31 @@
                     setTimeout(typeWriter, 130);
                 }
             }
-            
-            // Iniciar efeito após um pequeno delay
+          // Iniciar efeito após um pequeno delay
             setTimeout(typeWriter, 500);
         }
-
         // ============================================
-        // ANIMAÇÃO SUAVE - PERFORMANCE OTIMIZADA
+        // ANIMAÇÃO SUAVE AO ROLAR PARA AS SEÇÕES
         // ============================================
-        if ('IntersectionObserver' in window) {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.section').forEach(section => {
-                observer.observe(section);
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
             });
-        }
-
-        // ============================================
-        // PREVENIR COMPORTAMENTOS INDESEJADOS NO MOBILE
-        // ============================================
-        // Prevenir double-tap zoom
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-
-        // Prevenir pull-to-refresh no iOS
-        document.body.addEventListener('touchmove', function(event) {
-            if (event.scale !== 1) {
-                event.preventDefault();
-            }
-        }, { passive: false });
-
-        // ============================================
-        // DETECTAR DISPOSITIVO TOUCH
-        // ============================================
-        function isTouchDevice() {
-            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        }
-
-        if (isTouchDevice()) {
-            document.body.classList.add('touch-device');
-            // Aumentar área de toque para links importantes
-            document.querySelectorAll('.btn, .btn-small').forEach(btn => {
-                btn.style.minHeight = '44px';
-                btn.style.minWidth = '44px';
-                btn.style.display = 'inline-flex';
-                btn.style.alignItems = 'center';
-                btn.style.justifyContent = 'center';
-            });
-        }
+        }, observerOptions);
+        // Aplicar animação às seções
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
     </script>
 </body>
 </html>
