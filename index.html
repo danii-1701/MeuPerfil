@@ -1,1044 +1,964 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniela Campos | Portfólio</title>
-    <!-- Ícones do Font Awesome -->
+    <title>Meu Perfil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ============================================
-           VARIÁVEIS DE ESPAÇAMENTO PADRONIZADAS
-           ============================================ */
-        :root {
-            /* ESPAÇAMENTOS PADRÃO (múltiplos de 8px) */
-            --space-xs: 8px;
-            --space-sm: 12px;
-            --space-md: 16px;
-            --space-lg: 24px;
-            --space-xl: 32px;
-            --space-xxl: 40px;
-            --space-xxxl: 48px;
-            /* ESPAÇAMENTOS ESPECÍFICOS */
-            --icon-gap: 12px;
-            --button-padding: 12px 24px;
-            --card-padding: 24px;
-            --section-padding: 64px 0;
-            --element-gap: 16px;
-            --line-height: 1.6;
-        }
-        /* ============================================
-           RESET E CONFIGURAÇÕES GERAIS
-           ============================================ */
+        /* Reset e estilos gerais */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         html {
-            font-size: 16px;
-            -webkit-text-size-adjust: 100%;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: var(--line-height);
-            color: #333;
-            background-color: #ffffff;
-            background-image: 
-                radial-gradient(rgba(52, 152, 219, 0.08) 1.5px, transparent 1.5px);
-            background-size: 60px 60px;
-            background-position: 0 0;
-            background-attachment: fixed;
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-md);
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
         }
-        /* ============================================
-           NAVEGAÇÃO (MENU SUPERIOR) - MOBILE FIRST
-           ============================================ */
-        #navbar {
-            background-color: #051220;
-            color: white;
+
+        /* Header e Navegação */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
-        #navbar .container {
+
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--space-sm) var(--space-md);
-            min-height: 60px;
+            padding: 1.5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            padding: var(--space-xs) 0;
-            z-index: 1001;
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: #2d3436;
+            font-weight: 700;
         }
+
         .nav-links {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: #051220e6;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            list-style: none;
-            padding: var(--space-xl);
-            z-index: 1000;
-            margin: 0;
-        }
-        .nav-links.show {
             display: flex;
-            animation: fadeIn 0.3s ease;
+            list-style: none;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+
         .nav-links li {
-            margin: var(--space-sm) 0;
-            width: 100%;
-            text-align: center;
+            margin-left: 2rem;
         }
+
         .nav-links a {
-            color: white;
             text-decoration: none;
+            color: #2d3436;
             font-weight: 500;
-            font-size: 1.2rem;
-            padding: var(--space-sm) var(--space-lg);
-            display: block;
-            transition: all 0.3s ease;
-            border-radius: 8px;
+            transition: color 0.3s;
         }
-        .nav-links a:hover,
-        .nav-links a.active {
-            background-color: #f33990;
-            color: white;
-            transform: translateY(-2px);
+
+        .nav-links a:hover {
+            color: #6c5ce7;
         }
-        .menu-btn {
-            display: block;
-            background: none;
-            border: none;
-            color: white;
+
+        .menu-toggle {
+            display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            padding: var(--space-xs);
-            z-index: 1001;
-            transition: transform 0.3s ease;
+            color: #2d3436;
         }
-        .menu-btn:hover {
-            transform: scale(1.1);
-        }
-        .menu-btn.close {
-            position: absolute;
-            top: var(--space-sm);
-            right: var(--space-md);
-        }
-        /* ============================================
-           SEÇÃO HERO - OTIMIZADO PARA MOBILE
-           ============================================ */
+
+        /* Hero Section */
         .hero {
-            background-color: #051220;
+            padding: 8rem 5% 5rem;
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
             color: white;
-            text-align: center;
-            padding: 100px 0 60px;
-            margin-top: 60px;
-            min-height: calc(100vh - 60px);
+            min-height: 90vh;
             display: flex;
             align-items: center;
-            background-image: none !important;
         }
-        .hero .container {
-            padding: 0 var(--space-md);
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
         }
-        .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: var(--space-sm);
+
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
         }
-        .hero h2 {
+
+        .highlight {
+            color: #ffeaa7;
+        }
+
+        .hero-text p {
             font-size: 1.2rem;
-            margin-bottom: var(--space-lg);
-            font-weight: 300;
-            line-height: 1.4;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
-        .hero p {
-            font-size: 1rem;
-            max-width: 100%;
-            margin: 0 auto var(--space-xl);
-            line-height: 1.6;
-            padding: 0 var(--space-xs);
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
         }
-        /* ============================================
-           BOTÕES OTIMIZADOS PARA TOUCH
-           ============================================ */
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Botões */
         .btn {
             display: inline-block;
-            background-color: #f33990;
-            color: white;
-            padding: 14px 28px;
-            border-radius: 8px;
+            background-color: #ffeaa7;
+            color: #2d3436;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            transition: all 0.3s;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
-            line-height: 1.5;
-            min-height: 48px;
-            touch-action: manipulation;
         }
+
         .btn:hover {
-            background-color: #e61476;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(243, 57, 144, 0.3);
+            background-color: #fdcb6e;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        .btn:active {
-            transform: translateY(0);
-        }
-        .btn-small {
-            display: inline-block;
-            background-color: #e61476;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            background-color: transparent;
+            color: #6c5ce7;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
             text-decoration: none;
-            margin-top: var(--space-md);
+            font-weight: 600;
+            border: 2px solid #6c5ce7;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: #6c5ce7;
+            color: white;
+        }
+
+        .btn-small {
+            display: inline-flex;
+            align-items: center;
+            background-color: #6c5ce7;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
             font-size: 0.9rem;
-            min-height: 40px;
-            touch-action: manipulation;
+            transition: all 0.3s;
         }
+
         .btn-small:hover {
-            background-color: #d0136a;
-            transform: translateY(-2px);
+            background-color: #5b4fcf;
         }
-        /* ============================================
-           SEÇÕES GERAIS - MOBILE OPTIMIZED
-           ============================================ */
+
+        /* Seções */
         .section {
-            padding: 48px 0;
-            scroll-margin-top: 60px;
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .section.dark {
-            background-color: #f5f5f5;
+
+        .bg-light {
+            background-color: #f8f9fa;
         }
+
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: var(--space-xl);
-            color: #051220;
-            padding: 0 var(--space-sm);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d3436;
         }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #e61476;
-            margin: var(--space-sm) auto var(--space-lg);
-        }
-        /* ============================================
-           SEÇÃO "SOBRE MIM" - MOBILE
-           ============================================ */
-        .sobre-content {
+
+        /* Sobre */
+        .about-content {
             display: flex;
-            flex-direction: column;
-            gap: var(--space-lg);
+            gap: 4rem;
+            align-items: flex-start;
         }
-        .sobre-texto h3 {
-            margin: var(--space-lg) 0 var(--space-md);
-            color: #2c3e50;
-            font-size: 1.4rem;
+
+        .about-text {
+            flex: 2;
         }
-        .sobre-texto ul {
-            list-style-position: inside;
-            margin-left: 0;
-            padding-left: var(--space-sm);
-        }
-        .sobre-texto li {
-            margin-bottom: var(--space-sm);
-            padding-left: var(--space-xs);
-            line-height: 1.5;
-        }
-        /* ============================================
-           SEÇÃO "EXPERIÊNCIA" - MOBILE
-           ============================================ */
-        .experiencia-item {
-            background-color: white;
-            padding: var(--space-lg);
-            border-radius: 8px;
-            margin-bottom: var(--space-md);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-left: 4px solid #e61476;
-        }
-        .experiencia-item h3 {
-            color: #051220;
-            margin-bottom: var(--space-xs);
-            font-size: 1.3rem;
-        }
-        .empresa {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: var(--space-sm);
-            display: block;
-            font-size: 0.95rem;
-        }
-        .experiencia-item ul {
-            margin-left: var(--space-md);
-            padding-left: 0;
-        }
-        .experiencia-item li {
-            margin-bottom: var(--space-xs);
-            font-size: 0.95rem;
-        }
-        /* ============================================
-           SEÇÃO "FORMAÇÃO" - MOBILE
-           ============================================ */
-        .formacao-item {
-            margin-bottom: var(--space-lg);
-            padding-bottom: var(--space-md);
-            border-bottom: 1px solid #eee;
-        }
-        .formacao-item:last-child {
-            border-bottom: none;
-        }
-        .formacao-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: var(--space-xs);
-        }
-        .instituicao {
-            color: #e61476;
-            font-weight: bold;
-            margin: var(--space-xs) 0;
-            display: block;
-            font-size: 0.95rem;
-        }
-        .periodo {
-            color: #7f8c8d;
-            display: block;
-            font-size: 0.9rem;
-        }
-        .subtitle {
-            margin: var(--space-xl) 0 var(--space-lg);
-            color: #051220;
-            font-size: 1.4rem;
-            text-align: center;
-        }
-        .cursos-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-md);
-        }
-        .curso-item {
-            background-color: white;
-            padding: var(--space-lg);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .curso-item h4 {
-            color: #2c3e50;
-            margin-bottom: var(--space-sm);
+
+        .about-text p {
+            margin-bottom: 1.5rem;
             font-size: 1.1rem;
         }
-        /* ============================================
-           SEÇÃO "HABILIDADES" - MOBILE
-           ============================================ */
-        .habilidades-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-xl);
-            margin-bottom: var(--space-xl);
-        }
-        .habilidades-container h3 {
-            font-size: 1.3rem;
-            margin-bottom: var(--space-sm);
-        }
-        .skills {
+
+        .about-info {
+            flex: 1;
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: var(--space-sm);
+            flex-direction: column;
+            gap: 1.5rem;
         }
-        .skill {
-            background-color: #f33990;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            display: inline-block;
-            white-space: nowrap;
-        }
-        .habilidades-comportamentais .skill {
-            background-color: #f33990;
-        }
-        .idiomas p {
+
+        .info-item {
             background-color: white;
-            padding: var(--space-md);
-            border-radius: 8px;
-            margin-bottom: var(--space-sm);
-            font-size: 0.95rem;
-        }
-        .projeto-destaque {
-            background-color: white;
-            padding: var(--space-lg);
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-            margin-top: var(--space-lg);
-        }
-        .projeto-destaque h3 {
-            font-size: 1.3rem;
-            margin-bottom: var(--space-sm);
-        }
-        .projeto-destaque p {
-            font-size: 0.95rem;
-            margin-bottom: var(--space-md);
-        }
-        /* ============================================
-           SEÇÃO "CONTATO" - MOBILE
-           ============================================ */
-        #contato.section {
-            padding: 48px 0;
-        }
-        #contato .section-title {
-            margin-bottom: var(--space-lg);
-        }
-        .contato-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-lg);
-        }
-        .contato-info {
-            padding: var(--space-md);
-        }
-        .contato-info h3 {
-            margin-bottom: var(--space-md);
-            color: #2c3e50;
-            font-size: 1.4rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
         }
-        
-        .contato-detalhes {
-            margin: var(--space-lg) 0;
+
+        .info-item i {
+            font-size: 2rem;
+            color: #6c5ce7;
+            margin-bottom: 1rem;
         }
-        .contato-detalhes p {
-            margin-bottom: var(--space-sm);
+
+        .info-item h3 {
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+        }
+
+        /* Habilidades */
+        .skills-container {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .skill-category {
+            flex: 1;
+        }
+
+        .skill-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #2d3436;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .skill {
+            margin-bottom: 1rem;
+        }
+
+        .skill span {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Projetos */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .project-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+        }
+
+        .project-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-tech span {
+            background-color: #f1f2f6;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Contato */
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2d3436;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
             display: flex;
             align-items: flex-start;
-            padding: var(--space-xs) 0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            word-break: break-word;
+            gap: 1rem;
         }
-        .contato-detalhes i {
-            margin-right: var(--icon-gap);
-            color: #f33990;
-            width: 20px;
-            text-align: center;
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #6c5ce7;
+            margin-top: 0.3rem;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 0.3rem;
+            color: #2d3436;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
             font-size: 1rem;
-            flex-shrink: 0;
-            margin-top: 2px;
         }
-        .contato-info h4 {
-            margin-top: var(--space-lg);
-            margin-bottom: var(--space-sm);
-            color: #2c3e50;
-            font-size: 1.2rem;
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6c5ce7;
         }
-        .objetivo {
-            background-color: #f8f9fa;
-            padding: var(--space-md);
-            border-left: 4px solid #f33990;
-            font-style: italic;
-            margin: var(--space-lg) 0;
-            line-height: 1.6;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.95rem;
-        }
-        /* ============================================
-           RODAPÉ
-           ============================================ */
+
+        /* Footer */
         footer {
-            background-color: #2c3e50;
+            background-color: #2d3436;
             color: white;
+            padding: 2rem 5%;
             text-align: center;
-            padding: var(--space-lg) 0;
-            font-size: 0.9rem;
         }
-        footer p {
-            margin-bottom: var(--space-sm);
-            line-height: 1.4;
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        /* ============================================
-           MEDIA QUERIES PARA TELAS MAIORES
-           ============================================ */
-        @media (min-width: 768px) {
-            html {
-                font-size: 17px;
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #6c5ce7;
+            transform: translateY(-3px);
+        }
+
+        /* Animações */
+        .animate .skill-level {
+            width: var(--skill-level) !important;
+        }
+
+        .info-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .info-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* MEDIA QUERIES PARA RESPONSIVIDADE */
+
+        /* Tablets */
+        @media (max-width: 1024px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
             }
-            .container {
-                padding: 0 var(--space-lg);
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 3rem;
             }
-            /* NAVEGAÇÃO DESKTOP */
-            .menu-btn {
-                display: none;
+            
+            .hero-text h2 {
+                font-size: 2.5rem;
             }
+            
+            .about-content,
+            .skills-container,
+            .contact-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        /* Celulares grandes */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
             .nav-links {
-                display: flex !important;
-                position: static;
-                flex-direction: row;
-                height: auto;
-                width: auto;
-                background: none;
-                backdrop-filter: none;
-                padding: 0;
-                margin: 0;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s;
+                z-index: 999;
             }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
             .nav-links li {
-                margin: 0;
-                width: auto;
+                margin: 0.8rem 0;
             }
-            .nav-links a {
-                font-size: 1rem;
-                padding: var(--space-xs) var(--space-sm);
-                margin: 0 var(--space-xs);
-            }
-            .nav-links a:hover,
-            .nav-links a.active {
-                background-color: transparent;
-                color: #f33990;
-                transform: none;
-                border-bottom: 2px solid #f33990;
-            }
-            /* HERO */
+            
             .hero {
-                padding: 140px 0 80px;
-                margin-top: 70px;
+                padding: 7rem 5% 3rem;
+                min-height: auto;
             }
-            .hero h1 {
-                font-size: 2.8rem;
+            
+            .hero-text h2 {
+                font-size: 2rem;
             }
-            .hero h2 {
-                font-size: 1.5rem;
+            
+            .hero-image img {
+                width: 250px;
+                height: 250px;
             }
-            .hero p {
-                font-size: 1.1rem;
-                max-width: 700px;
-                padding: 0;
-            }
-            /* SEÇÕES */
-            .section {
-                padding: 64px 0;
-            }
+            
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
-            .section-title::after {
-                width: 80px;
-                margin: var(--space-md) auto var(--space-xl);
-            }
-            /* HABILIDADES */
-            .habilidades-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            /* CURSOS */
-            .cursos-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: var(--space-lg);
-            }
-            /* CONTATO */
-            .contato-container {
+            
+            .projects-container {
                 grid-template-columns: 1fr;
             }
         }
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0 var(--space-xl);
+
+        /* Celulares pequenos */
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem 5%;
             }
-            .hero h1 {
-                font-size: 3rem;
+            
+            .logo h1 {
+                font-size: 1.2rem;
             }
-            .section-title {
-                font-size: 2.5rem;
-            }
-        }
-        @media (max-width: 380px) {
-            .hero h1 {
+            
+            .hero-text h2 {
                 font-size: 1.8rem;
             }
-            .hero h2 {
-                font-size: 1.1rem;
+            
+            .hero-text p {
+                font-size: 1rem;
             }
+            
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .btn, .btn-outline {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .section {
+                padding: 3rem 5%;
+            }
+            
             .section-title {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
-            .skills {
-                gap: 6px;
+            
+            .info-item {
+                padding: 1rem;
             }
-            .skill {
-                padding: 5px 10px;
-                font-size: 0.8rem;
+            
+            .project-content {
+                padding: 1rem;
             }
-            .btn {
-                padding: 12px 24px;
-                font-size: 0.95rem;
+            
+            .form-group input,
+            .form-group textarea {
+                padding: 0.8rem;
             }
-        }
-        /* ============================================
-           UTILITÁRIOS PARA MOBILE
-           ============================================ */
-        /* Prevenir zoom em inputs no iOS */
-        @media screen and (max-width: 768px) {
-            input,
-            select,
-            textarea {
-                font-size: 16px !important;
-            }
-        }
-        /* Melhorar legibilidade em mobile */
-        p, li, span, a {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        /* Animações suaves */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
         }
     </style>
 </head>
 <body>
-    <!-- MENU DE NAVEGAÇÃO -->
-    <nav id="navbar">
-        <div class="container">
-            <a href="#inicio" class="logo">Daniela Campos</a>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Daniella Borges</h1>
+            </div>
             <ul class="nav-links">
-                <li><a href="#inicio">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#experiencia">Experiência</a></li>
-                <li><a href="#formacao">Formação</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
-            <button class="menu-btn" aria-label="Abrir menu">
+            <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Restante do conteúdo permanece igual... -->
-    <!-- SEÇÃO INICIAL -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <h1 id="typewriter">Daniela Campos</h1>
-            <h2>Cientista de Dados & Desenvolvedora em Formação</h2>
-            <p>Graduanda em Ciência de Dados e IA | Apaixonada por tecnologia, arte e inovação</p>
-            <a href="#contato" class="btn">Entre em Contato</a>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>Olá, eu sou <span class="highlight">Daniella Borges</span></h2>
+                <p>Desenvolvedora Web | Estudante de Análise e Desenvolvimento de Sistemas</p>
+                <a href="#contato" class="btn">Entre em Contato</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://avatars.githubusercontent.com/u/108595411?v=4" alt="Daniella Borges">
+            </div>
         </div>
     </section>
 
-    <!-- As outras seções permanecem iguais -->
-    <!-- SEÇÃO SOBRE MIM -->
     <section id="sobre" class="section">
-        <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
-            <div class="sobre-content">
-                <div class="sobre-texto">
-                    <p>Tenho 19 anos, moro em Santo André - SP e sou estudante de Ciência de Dados e Inteligência Artificial no Centro Universitário Fundação Santo André (período noturno, 2024-2027).</p>
-                    <p>Minha abordagem é criativa e inovadora, conectando paixão por artes digitais, jogos, robótica e tecnologia.</p>
-                    <h3>Curiosidades:</h3>
-                    <ul>
-                        <li><strong>Desenho:</strong> Participei de cursos e competições para aprimorar diferentes estilos</li>
-                        <li><strong>Ballet:</strong> Pratiquei por 5 anos e participei de espetáculos</li>
-                        <li><strong>Jogos:</strong> Fã de jogos com modo história e online</li>
-                        <li><strong>Robótica:</strong> Interesse por entretenimento e programação de máquinas</li>
-                        <li><strong>Tecnologia:</strong> Inspirada pelo meu pai e irmã que atuam na área</li>
-                    </ul>
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Sou estudante de Análise e Desenvolvimento de Sistemas e apaixonada por tecnologia. Atualmente, estou focada em desenvolver minhas habilidades em desenvolvimento web, com conhecimentos em HTML, CSS, JavaScript e React.</p>
+                <p>Busco minha primeira oportunidade na área de tecnologia para aplicar e expandir meus conhecimentos, contribuindo com projetos desafiadores e inovadores.</p>
+                <a href="https://github.com/danii-1701" target="_blank" class="btn-outline">
+                    <i class="fab fa-github"></i> Ver GitHub
+                </a>
+            </div>
+            <div class="about-info">
+                <div class="info-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Formação</h3>
+                    <p>Análise e Desenvolvimento de Sistemas</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Localização</h3>
+                    <p>Brasil</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-language"></i>
+                    <h3>Idiomas</h3>
+                    <p>Português (Nativo), Inglês (Intermediário)</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO EXPERIÊNCIA -->
-    <section id="experiencia" class="section dark">
-        <div class="container">
-            <h2 class="section-title">Experiência Profissional</h2>
-            <div class="experiencia-item">
-                <h3>Analista de Operações - Facilities</h3>
-                <span class="empresa">RZK Concessões | Jul - Out 2025</span>
-                <ul>
-                    <li>Gestão operacional de terminais e estações</li>
-                    <li>Controle e rateio de custos de utilidades</li>
-                    <li>Padronização e gestão de processos e planilhas</li>
-                    <li>Supervisão da qualidade dos serviços terceirizados</li>
-                </ul>
-            </div>
-            <div class="experiencia-item">
-                <h3>Analista de Dados</h3>
-                <span class="empresa">RZK Concessões | Jun - Jul 2025</span>
-                <ul>
-                    <li>Análise, coleta e tratamento de informações financeiras</li>
-                    <li>Desenvolvimento de planilhas com dados financeiros</li>
-                    <li>Colaboração para alinhamento das informações aos objetivos organizacionais</li>
-                </ul>
-            </div>
-            <div class="experiencia-item">
-                <h3>Assistente Administrativo Comercial</h3>
-                <span class="empresa">RZK Concessões | Ago 2024 - Mai 2025</span>
-                <ul>
-                    <li>Executiva de vendas prospectando clientes via CRM Kommo</li>
-                    <li>Desenvolvimento de estratégias comerciais e acompanhamento de contratos</li>
-                    <li>Gestão de pagamentos e conferência financeira</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO FORMAÇÃO -->
-    <section id="formacao" class="section">
-        <div class="container">
-            <h2 class="section-title">Formação Acadêmica</h2>
-            <div class="formacao-item">
-                <h3>Ciência de Dados e Inteligência Artificial</h3>
-                <span class="instituicao">Centro Universitário Fundação Santo André - SP</span>
-                <span class="periodo">2024 - Presente (Término previsto: 2027) | Período Noturno</span>
-            </div>
-            <div class="formacao-item">
-                <h3>Curso Técnico em Informática</h3>
-                <span class="instituicao">Centro Educacional ETIP - SP</span>
-                <span class="periodo">2021 - 2023 | Concluído</span>
-            </div>
-            <h3 class="subtitle">Cursos e Certificações</h3>
-            <div class="cursos-grid">
-                <div class="curso-item">
-                    <h4>Power BI - Básico/Avançado</h4>
-                    <p>Udemy | Início Fev/2025</p>
-                </div>
-                <div class="curso-item">
-                    <h4>Excel - Intermediário</h4>
-                    <p>Bradesco | Concluído Mar/2024</p>
-                </div>
-                <div class="curso-item">
-                    <h4>Python - Básico</h4>
-                    <p>Bradesco | Concluído Fev/2024</p>
-                </div>
-                <div class="curso-item">
-                    <h4>Inglês - Iniciante/Intermediário</h4>
-                    <p>Concluído Out/2023</p>
-                </div>
-                <div class="curso-item">
-                    <h4>CONECTADAS</h4>
-                    <p>Mercado Livre | Concluído Jul/2021</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO HABILIDADES -->
-    <section id="habilidades" class="section dark">
-        <div class="container">
-            <h2 class="section-title">Habilidades e Competências</h2>
-            <div class="habilidades-container">
-                <div class="habilidades-tecnicas">
-                    <h3>Técnicas</h3>
-                    <div class="skills">
-                        <span class="skill">Python</span>
-                        <span class="skill">Power BI</span>
-                        <span class="skill">SQL</span>
-                        <span class="skill">Excel/VBA</span>
-                        <span class="skill">HTML/CSS</span>
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">PHP</span>
-                        <span class="skill">C#</span>
-                        <span class="skill">AWS</span>
-                        <span class="skill">Pacote Office</span>
+    <section id="habilidades" class="section bg-light">
+        <h2 class="section-title">Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Front-end</h3>
+                <div class="skills-list">
+                    <div class="skill">
+                        <span>HTML5</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="--skill-level: 90%;"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="habilidades-comportamentais">
-                    <h3>Comportamentais</h3>
-                    <div class="skills">
-                        <span class="skill">Proatividade</span>
-                        <span class="skill">Criatividade</span>
-                        <span class="skill">Responsabilidade</span>
-                        <span class="skill">Organização</span>
-                        <span class="skill">Boa comunicação</span>
-                        <span class="skill">Relacionamento interpessoal</span>
-                        <span class="skill">Comprometimento</span>
-                        <span class="skill">Capacidade analítica</span>
+                    <div class="skill">
+                        <span>CSS3</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="--skill-level: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="--skill-level: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>React</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="--skill-level: 75%;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="idiomas">
-                <h3>Idiomas</h3>
-                <p>Inglês: Intermediário</p>
-                <p>Espanhol: Básico</p>
-            </div>
-            <div class="projeto-destaque">
-                <h3>Projeto em Destaque</h3>
-                <p><strong>ReviveTech</strong> - Projeto acadêmico desenvolvido com colegas de classe, buscando promover soluções inovadoras e sustentáveis na área tecnológica. Clique abaixo para vizualizá-lo</p>
-                <a href="https://revivetechbussines-prog.github.io/revivetech/" class="btn-small" target="_blank">Ver Projeto</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO CONTATO -->
-    <section id="contato" class="section">
-        <div class="container">
-            <h2 class="section-title">Contato</h2>
-            <div class="contato-container">
-                <div class="contato-info">
-                    <h3>Entre em contato comigo!</h3>
-                    <p>Estou em busca de oportunidades como <strong>Estágio, Júnior ou Trainee</strong> em diversas áreas da tecnologia, com ênfase em Dados e Design UX.</p>
-                    <div class="contato-detalhes">
-                        <p><i class="fas fa-envelope"></i> danii1701campos@gmail.com</p>
-                        <p><i class="fas fa-phone"></i> (11) 93489-6570</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Santo André - São Paulo</p>
-                        <p><i class="fab fa-linkedin"></i> https://www.linkedin.com/in/daniela-campos-9911802b9/</p>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Ferramentas</h3>
+                <div class="skills-list">
+                    <div class="skill">
+                        <span>Git</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="--skill-level: 85%;"></div>
+                        </div>
                     </div>
-                    <h4>Meus Objetivos:</h4>
-                    <p class="objetivo">"Integrar meus conhecimentos da área de Ciência de Dados e IA ao ambiente profissional, criando soluções dinâmicas que promovam o crescimento e inovação para a empresa."</p>
+                    <div class="skill">
+                        <span>GitHub</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="--skill-level: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>VS Code</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="--skill-level: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Figma</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="--skill-level: 70%;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- RODAPÉ -->
+    <section id="projetos" class="section">
+        <h2 class="section-title">Projetos</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto E-commerce">
+                </div>
+                <div class="project-content">
+                    <h3>Loja Virtual</h3>
+                    <p>Site de e-commerce desenvolvido com HTML, CSS e JavaScript.</p>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <a href="https://github.com/danii-1701" target="_blank" class="btn-small">
+                        <i class="fab fa-github"></i> Ver Código
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Dashboard">
+                </div>
+                <div class="project-content">
+                    <h3>Dashboard Financeiro</h3>
+                    <p>Dashboard interativo para controle financeiro pessoal.</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>CSS</span>
+                        <span>API</span>
+                    </div>
+                    <a href="https://github.com/danii-1701" target="_blank" class="btn-small">
+                        <i class="fab fa-github"></i> Ver Código
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Blog">
+                </div>
+                <div class="project-content">
+                    <h3>Blog Pessoal</h3>
+                    <p>Blog responsivo com sistema de posts e comentários.</p>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <a href="https://github.com/danii-1701" target="_blank" class="btn-small">
+                        <i class="fab fa-github"></i> Ver Código
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="section bg-light">
+        <h2 class="section-title">Contato</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Vamos conversar!</h3>
+                <p>Estou sempre aberta a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contato.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>daniborges.contato@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>github.com/danii-1701</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/daniellaborges</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Seu email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Sua mensagem" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Daniela Campos.</p>
-            <p>Site desenvolvido em HTML, CSS e JavaScript.</p>
+        <div class="footer-content">
+            <p>&copy; 2023 Daniella Borges. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://github.com/danii-1701" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/daniellaborges/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:daniborges.contato@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // ============================================
-        // MENU RESPONSIVO MELHORADO
-        // ============================================
-        document.addEventListener('DOMContentLoaded', function() {
-            const navbar = document.getElementById('navbar');
-            const navLinks = document.querySelector('.nav-links');
-            const menuBtn = document.querySelector('.menu-btn');
-            const menuIcon = menuBtn.querySelector('i');
-            
-            // Alternar menu ao clicar no botão
-            menuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('show');
-                if (navLinks.classList.contains('show')) {
-                    menuIcon.classList.remove('fa-bars');
-                    menuIcon.classList.add('fa-times');
-                    menuBtn.setAttribute('aria-label', 'Fechar menu');
-                    document.body.style.overflow = 'hidden'; // Prevenir scroll
-                } else {
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                    menuBtn.setAttribute('aria-label', 'Abrir menu');
-                    document.body.style.overflow = 'auto';
-                }
-            });
+        // Menu mobile toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-            // Fechar menu ao clicar em um link
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('show');
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                    menuBtn.setAttribute('aria-label', 'Abrir menu');
-                    document.body.style.overflow = 'auto';
-                });
-            });
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
 
-            // Fechar menu ao clicar fora
-            document.addEventListener('click', function(event) {
-                if (!navbar.contains(event.target) && navLinks.classList.contains('show')) {
-                    navLinks.classList.remove('show');
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                    menuBtn.setAttribute('aria-label', 'Abrir menu');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-
-            // Prevenir fechamento ao clicar dentro do menu
-            navLinks.addEventListener('click', function(event) {
-                event.stopPropagation();
-            });
-
-            // Fechar menu ao pressionar ESC
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape' && navLinks.classList.contains('show')) {
-                    navLinks.classList.remove('show');
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                    menuBtn.setAttribute('aria-label', 'Abrir menu');
-                    document.body.style.overflow = 'auto';
-                }
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             });
         });
 
-        // ============================================
-        // SCROLL SUAVE MELHORADO PARA MOBILE
-        // ============================================
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Formulário de contato
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const navbarHeight = document.getElementById('navbar').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Atualizar URL sem recarregar a página
-                    if (history.pushState) {
-                        history.pushState(null, null, targetId);
-                    } else {
-                        location.hash = targetId;
-                    }
+                const button = this.querySelector('button');
+                const originalText = button.innerHTML;
+                
+                button.innerHTML = '<i class="fas fa-check"></i> Mensagem Enviada!';
+                button.disabled = true;
+                button.style.backgroundColor = '#00b894';
+                
+                // Resetar após 3 segundos
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    button.style.backgroundColor = '';
+                    contactForm.reset();
+                }, 3000);
+            });
+        }
+
+        // Animações ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animação
+        document.querySelectorAll('.skill-level').forEach(el => {
+            // Definir a largura real para animação
+            const width = el.style.getPropertyValue('--skill-level');
+            if (width) {
+                observer.observe(el.parentElement.parentElement);
+            }
+        });
+        
+        document.querySelectorAll('.project-card').forEach(el => observer.observe(el));
+        document.querySelectorAll('.info-item').forEach(el => observer.observe(el));
+
+        // Inicializar animações que já estão visíveis
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.skill-level').forEach(el => {
+                const parentSkill = el.parentElement.parentElement;
+                const rect = parentSkill.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    parentSkill.classList.add('animate');
+                }
+            });
+            
+            document.querySelectorAll('.project-card, .info-item').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('animate');
                 }
             });
         });
-
-        // ============================================
-        // DESTAQUE DA SEÇÃO ATIVA - OTIMIZADO
-        // ============================================
-        function highlightActiveSection() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            const scrollPosition = window.scrollY + 100;
-            let currentSectionId = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    currentSectionId = section.id;
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                const href = link.getAttribute('href');
-                if (href === `#${currentSectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Debounce para melhor performance
-        let scrollTimeout;
-        window.addEventListener('scroll', function() {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(highlightActiveSection, 100);
-        });
-        highlightActiveSection(); // Chamar inicialmente
-
-        // ============================================
-        // EFEITO DE DIGITAÇÃO NO TÍTULO
-        // ============================================
-        const typewriterElement = document.getElementById('typewriter');
-        if (typewriterElement) {
-            const text = typewriterElement.textContent;
-            typewriterElement.textContent = '';
-            let i = 0;
-            
-            function typeWriter() {
-                if (i < text.length) {
-                    typewriterElement.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 130);
-                }
-            }
-            
-            // Iniciar efeito após um pequeno delay
-            setTimeout(typeWriter, 500);
-        }
-
-        // ============================================
-        // ANIMAÇÃO SUAVE - PERFORMANCE OTIMIZADA
-        // ============================================
-        if ('IntersectionObserver' in window) {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.section').forEach(section => {
-                observer.observe(section);
-            });
-        }
-
-        // ============================================
-        // PREVENIR COMPORTAMENTOS INDESEJADOS NO MOBILE
-        // ============================================
-        // Prevenir double-tap zoom
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-
-        // Prevenir pull-to-refresh no iOS
-        document.body.addEventListener('touchmove', function(event) {
-            if (event.scale !== 1) {
-                event.preventDefault();
-            }
-        }, { passive: false });
-
-        // ============================================
-        // DETECTAR DISPOSITIVO TOUCH
-        // ============================================
-        function isTouchDevice() {
-            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        }
-
-        if (isTouchDevice()) {
-            document.body.classList.add('touch-device');
-            // Aumentar área de toque para links importantes
-            document.querySelectorAll('.btn, .btn-small').forEach(btn => {
-                btn.style.minHeight = '44px';
-                btn.style.minWidth = '44px';
-                btn.style.display = 'inline-flex';
-                btn.style.alignItems = 'center';
-                btn.style.justifyContent = 'center';
-            });
-        }
     </script>
 </body>
 </html>
